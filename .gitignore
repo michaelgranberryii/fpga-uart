@@ -1,0 +1,7 @@
+uart-systemverilog/build/*
+uart-systemverilog-mod/build/*
+uart-vhdl/build/*
+
+!uart-systemverilog/build/.keep
+!uart-systemverilog-mod/build/.keep
+!uart-vhdl/build/.keep
