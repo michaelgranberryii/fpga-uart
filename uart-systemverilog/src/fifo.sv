@@ -2,10 +2,10 @@
 module fifo
    #(
     parameter DATA_WIDTH=8, // number of bits in a word
-              ADDR_WIDTH=4  // number of address bits
+              ADDR_WIDTH=2  // number of address bits
    )
    (
-    input  logic clk, reset,
+    input  logic clk, rst,
     input  logic rd, wr,
     input  logic [DATA_WIDTH-1:0] w_data,
     output logic empty, full,
@@ -26,7 +26,7 @@ module fifo
       (.*, .full(full_tmp));
 
    // instantiate register file
-   reg_file 
-      #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) f_unit (.*);
+   reg_file #(.DATA_WIDTH(DATA_WIDTH), .ADDR_WIDTH(ADDR_WIDTH)) f_unit 
+      (.*);
 endmodule
 

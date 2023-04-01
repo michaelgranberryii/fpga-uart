@@ -74,6 +74,7 @@ begin
                state_next <= start;
                s_next     <= (others => '0');
             end if;
+            
          when start =>
             if (s_tick = '1') then
                if s_reg = 7 then
@@ -84,6 +85,7 @@ begin
                   s_next <= s_reg + 1;
                end if;
             end if;
+
          when data =>
             if (s_tick = '1') then
                if s_reg = 15 then
@@ -98,6 +100,7 @@ begin
                   s_next <= s_reg + 1;
                end if;
             end if;
+            
          when stop =>
             if (s_tick = '1') then
                if s_reg = (SB_TICK - 1) then

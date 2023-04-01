@@ -4,7 +4,7 @@ module fifo_ctrl
     parameter ADDR_WIDTH=4  // number of address bits
    )
    (
-    input  logic clk, reset,
+    input  logic clk, rst,
     input  logic rd, wr,
     output logic empty, full,
     output logic [ADDR_WIDTH-1:0] w_addr,
@@ -19,8 +19,8 @@ module fifo_ctrl
    // body
    // fifo control logic
    // logicisters for status and read and write pointers
-   always_ff @(posedge clk, posedge reset)
-      if (reset)
+   always_ff @(posedge clk, posedge rst)
+      if (rst)
          begin
             w_ptr_logic <= 0;
             r_ptr_logic <= 0;
@@ -41,11 +41,13 @@ module fifo_ctrl
       // successive pointer values
       w_ptr_succ = w_ptr_logic + 1;
       r_ptr_succ = r_ptr_logic + 1;
+
       // default: keep old values
       w_ptr_next = w_ptr_logic;
       r_ptr_next = r_ptr_logic;
       full_next = full_logic;
       empty_next = empty_logic;
+
       unique case ({wr, rd})
          2'b01: // read
             if (~empty_logic) // not empty

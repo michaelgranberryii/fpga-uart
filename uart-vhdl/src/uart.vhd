@@ -24,19 +24,22 @@ entity uart is
 end uart;
 
 architecture Behavioral of uart is
-   signal tick              : std_logic;
-   signal rx_done_tick      : std_logic;
-   signal tx_fifo_out       : std_logic_vector(7 downto 0);
-   signal rx_data_out       : std_logic_vector(7 downto 0);
-   signal tx_empty          : std_logic;
+
+   signal tick : std_logic;
+   signal rx_done_tick : std_logic;
+   signal tx_fifo_out : std_logic_vector(7 downto 0);
+   signal rx_data_out : std_logic_vector(7 downto 0);
+   signal tx_empty : std_logic;
    signal tx_fifo_not_empty : std_logic;
-   signal tx_done_tick      : std_logic;
+   signal tx_done_tick : std_logic;
 
 begin
 
    baud_gen_unit : entity work.baud_gen
       port map(
-         clk  => clk, rst => rst, dvsr => dvsr,
+         clk  => clk, 
+         rst => rst, 
+         dvsr => dvsr,
          ticks => tick
       );
    uart_rx_unit : entity work.uart_rx

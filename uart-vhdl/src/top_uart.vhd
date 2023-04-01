@@ -12,9 +12,6 @@ entity top_uart is
         clk : in std_logic;
         rst : in std_logic;
         led : out std_logic_vector(3 downto 0);
-        led_r : out std_logic;
-        led_g : out std_logic;
-        led_b : out std_logic;
         tx : out std_logic;
         rx : in std_logic
     );
@@ -32,7 +29,7 @@ architecture Behavioral of top_uart is
     signal tx_full : std_logic;
     signal rx_empty : std_logic;
     signal r_data : std_logic_vector((DATA_WIDTH-1) downto 0);
-    signal w_data : std_logic_vector((DATA_WIDTH-1) downto 0);
+    signal w_data : std_logic_vector((DATA_WIDTH-1) downto 0) := x"56";
     signal dvsr_reg : std_logic_vector((N-1) downto 0);
 
 begin
