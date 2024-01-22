@@ -5,6 +5,10 @@ Zybo Z7-10 FPGA SoC Development Board:  UART Controller and LEDs
 
 In this project, a UART controller was created using VHDL and was tested on the Zybo Z7 10 FPGA board. The objective was to develop a controller that could receive a serial stream of data from a keyboard and display its binary representation on the board's four LEDs. The VHDL modules consisted of a register file, FIFO controller, FIFO, baud rate generator, UART receiver, UART transmitter, UART, and a top module to control the LEDs. Vivado is used for simulation, synthesizing, and implementing the VHDL code. Lastly, it's functionality was verified by typing various numbers on a keyboard and observed that the binary representation of the numbers was correctly displayed on the LEDs.
 
+## Demo Video
+
+[Demo on Youtube](https://youtu.be/IjOx7qobAYc)
+
 ## Dependencies
 
 ### Hardware
